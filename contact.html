@@ -34,18 +34,22 @@
 
             <div class="emailForm">
                 <p class="formLabel">Name</p>
-                <input type="text" class="normalINput" />
+                <input type="text" class="normalINput" id="name"/>
 
-                <p class="formLabel">Email</p>
-                <input type="text" class="normalINput" />
+                <!-- <p class="formLabel">Email</p>
+                <input type="text" class="normalINput" id="email"/> -->
 
 
                 <p class="formLabel">Subject</p>
-                <input type="text" class="normalINput" />
+                <input type="text" class="normalINput" id="subject"/>
 
 
                 <p class="formLabel">Message</p>
-                <textarea class="textArea"></textarea>
+                <textarea class="textArea" id="message"></textarea>
+            </div>
+
+            <div class="sendEmailButton">
+                <button id="mailtobutton" onClick="sendMessage()">Send Email</button>
             </div>
 
             <p class="yep">You can also contact me on Discord: Siddhartt#2194</p>
@@ -84,3 +88,14 @@
         height: fit-content;
     }
 </style>
+
+<script>
+    function sendMessage(){
+        let name = document.getElementById('name').value;
+        let subject = document.getElementById('subject').value;
+        let content = document.getElementById('message').value;
+
+        let mailtoString = `mailto:siddhartssg@gmail.com?subject=${name} - ${subject}&body=${content}`
+        window.location.href = mailtoString
+    }
+</script>
